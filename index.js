@@ -321,6 +321,7 @@ socket.on("revealFinalResults", ({ roomCode }) => {
   });
 });
 
-server.listen(4000, () => {
-  console.log("Server listening on port 4000");
+const PORT = process.env.PORT || 4000; // fallback for local dev
+server.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });
