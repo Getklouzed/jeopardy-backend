@@ -7,9 +7,12 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 
+app.get("/health", (req, res) => res.send("OK"));
+
 app.get("/test-cors", (req, res) => {
   res.json({ success: true });
-});
+}); 
+
 
 
 const server = http.createServer(app);
