@@ -7,14 +7,19 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 
+app.get("/test-cors", (req, res) => {
+  res.json({ success: true });
+});
+
+
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: "https://jeopardy-sami.vercel.app",
     methods: ["GET", "POST"],
+    credentials: true,
   },
 });
-
 
 
 // In-memory room storage
